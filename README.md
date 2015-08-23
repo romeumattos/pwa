@@ -14,7 +14,7 @@ Para saber mais sobre o framework acesse: [cakephp/cakephp](https://github.com/c
 
 ## Instalação
 
-1. Baixe o [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
+1. Baixe o [Composer](http://getcomposer.org/doc/00-intro.md)
 2. Execute `php composer.phar install`.
 
 
