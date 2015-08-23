@@ -112,10 +112,10 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        // Allow users to register and logout.
+        // Allow users to logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+        $this->Auth->allow(['logout']);
     }
 
     public function login()
@@ -133,5 +133,23 @@ class UsersController extends AppController
     public function logout()
     {
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if ($this->request->action === 'index' || $this->request->action === 'view') {
+            return true;
+        }
+
+        // The user can edit and delete it
+        if (in_array($this->request->action, ['edit', 'delete'])) {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($userId === $user['id']) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
     }
 }

@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'PWA - Unisul';
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +39,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <span><?= $this->fetch('title') ?></span>
         </div>
         <div class="header-help">
-
+            <?= $this->Html->link(
+                'Logout',
+                ['controller' => 'Users', 'action' => 'logout', '_full' => true]
+                );
+            ?>
         </div>
     </header>
     <div id="container">

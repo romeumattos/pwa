@@ -46,8 +46,8 @@ class AppController extends Controller
                 'action' => 'index'
             ],
             'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
+                'controller' => 'Users',
+                'action' => 'login',
                 'home'
             ]
         ]);
@@ -61,7 +61,7 @@ class AppController extends Controller
     public function isAuthorized($user)
     {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin') {
+        if (isset($user['profile_id']) && $user['profile_id'] === '1') {
             return true;
         }
 
