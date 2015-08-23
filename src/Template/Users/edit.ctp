@@ -15,10 +15,9 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?= $this->Form->input('username') ?>
+        <?= $this->Form->input('email', ['type' => 'email']) ?>
         <?= $this->Form->input('password') ?>
-        <?= $this->Form->input('role', [
-            'options' => ['admin' => 'Admin', 'author' => 'Author']
-        ]) ?>
+        <?= $this->Form->input('profile_id') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

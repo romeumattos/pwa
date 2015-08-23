@@ -30,6 +30,11 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Profiles', [
+            'ClassName'  => 'Profiles',
+            'foreignKey' => 'profile_id',
+        ]);
+
     }
 
     /**
@@ -43,11 +48,12 @@ class UsersTable extends Table
          $validator
             ->notEmpty('username', 'A username is required')
             ->notEmpty('password', 'A password is required')
-            ->notEmpty('role', 'A role is required')
-            ->add('role', 'inList', [
-                'rule' => ['inList', ['admin', 'author']],
-                'message' => 'Please enter a valid role'
-            ]);
+             ->requirePresence('email')
+             ->add('email', 'validFormat', [
+                 'rule' => 'email',
+                 'message' => 'E-mail must be valid'
+             ])
+             ->notEmpty('profile_id', 'A profile is required');
 
         return $validator;
     }

@@ -19,7 +19,8 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->set('users', $this->paginate($this->Users));
+        $users = $this->Users->find('all')->contain(['Profiles']);
+        $this->set('users', $this->paginate($users));
         $this->set('_serialize', ['users']);
     }
 
@@ -56,6 +57,8 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
+        $profiles = $this->Users->Profiles->find('list');
+        $this->set(compact('profiles'));
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
@@ -81,6 +84,8 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
+        $profiles = $this->Users->Profiles->find('list');
+        $this->set(compact('profiles'));
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }

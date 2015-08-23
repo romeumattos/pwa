@@ -10,7 +10,7 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('username') ?></th>
-            <th><?= $this->Paginator->sort('role') ?></th>
+            <th><?= $this->Paginator->sort('profile_id') ?></th>
             <th><?= $this->Paginator->sort('created') ?></th>
             <th><?= $this->Paginator->sort('modified') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
@@ -18,10 +18,11 @@
     </thead>
     <tbody>
     <?php foreach ($users as $user): ?>
+        <?php //pr($user); exit; ?>
         <tr>
             <td><?= $this->Number->format($user->id) ?></td>
             <td><?= h($user->username) ?></td>
-            <td><?= h($user->role) ?></td>
+            <td><?= h($user->profile_id) ?></td>
             <td><?= h($user->created) ?></td>
             <td><?= h($user->modified) ?></td>
             <td class="actions">
