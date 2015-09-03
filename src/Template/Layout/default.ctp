@@ -38,7 +38,7 @@ $cakeDescription = 'PWA - Unisul';
         <div class="header-title">
             <span><?= $this->fetch('title') ?></span>
         </div>
-        <div class="header-help">
+        <div class="header-logout">
             <?= $this->Html->link(
                 'Logout',
                 ['controller' => 'Users', 'action' => 'logout', '_full' => true]
