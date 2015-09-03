@@ -52,6 +52,10 @@ legend {
   color:#15848F;
 }
 
+.actions.columns h4 {
+  color:#15848F;
+}
+
 .index table {
   margin-top: 2rem;
   border: 0;
@@ -83,6 +87,31 @@ legend {
 }
 
 .header-help a {
+  color: #fff;
+}
+
+.header-logout {
+  float: right;
+  margin-right:2rem;
+  margin-top: -70px;
+  font-size:16px;
+}
+
+.header-logout span {
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.375rem;
+  font-size: 0.8rem;
+  background-color: #0097a7;
+  color: #FFF;
+  border-radius: 1000px;
+}
+
+.header-logout a {
   color: #fff;
 }
 
